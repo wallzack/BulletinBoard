@@ -6,4 +6,8 @@ export const initialState = {
       error: false,
     },
   },
+  user: {
+    rights: '',
+    authenticated: false,
+  },
 };
