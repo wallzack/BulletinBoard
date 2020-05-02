@@ -12,7 +12,7 @@ const mockProps = {
       title: 'title',
       location: 'lodz',
       image: 'https://loremflickr.com/400/200/landscape,Turkey/all?lock=1',
-      publishedDate: 'today',
+      published: 'today',
     },
   ],
 };

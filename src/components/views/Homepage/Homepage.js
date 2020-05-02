@@ -26,13 +26,13 @@ const Component = ({ className, user, posts }) => (
           <Card {...ad} className={styles.ad}>
             <Card.Img className={styles.cardImage} variant="top" src={ad.image} />
             <Card.Body>
-              <Card.Title><a href={`/post/:${ad.id}`}>{ad.title}</a></Card.Title>
+              <Card.Title><a href={`/post/${ad.id}`}>{ad.title}</a></Card.Title>
               <Card.Text>
                 {ad.location}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Published {ad.publishedDate}</small>
+              <small className="text-muted">Published {ad.published}</small>
             </Card.Footer>
           </Card>
         </Col>
