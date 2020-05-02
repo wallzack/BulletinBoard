@@ -15,11 +15,11 @@ import styles from './Post.module.scss';
 const Component = ({ className, post, user }) => (
   <div className={clsx(className, styles.root)}>
     <h2>Post</h2>
-    {user.authenticated ? (<Button href={`/post/edit/${post.id}`} variant="dark">Edit post</Button>) : ''}
+    {user.authenticated ? (<Button href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
     <Card>
       <Card.Img variant="top" src={post.image} />
       <Card.Header>{post.title}</Card.Header>
-      <Card.Subtitle className="mt-2 text-muted">Published {post.published}</Card.Subtitle>
+      <Card.Subtitle className="mt-2 text-muted">{post.price}</Card.Subtitle>
       <Card.Body>
         <Card.Text>
           {post.content}
@@ -41,6 +41,7 @@ const Component = ({ className, post, user }) => (
       </Card.Body>
       <Card.Footer>
         <small className="text-muted">Last update {post.updated}</small>
+        <small className="text-muted">Published {post.published}</small>
       </Card.Footer>
     </Card>
   </div>
@@ -50,7 +51,6 @@ Component.propTypes = {
   className: PropTypes.string,
   post: PropTypes.object,
   user: PropTypes.object,
-
 };
 
 const mapStateToProps = (state, props) => ({
