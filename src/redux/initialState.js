@@ -8,6 +8,6 @@ export const initialState = {
   },
   user: {
     rights: '',
-    authenticated: false,
+    authenticated: true,
   },
 };

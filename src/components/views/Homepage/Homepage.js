@@ -5,6 +5,9 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import { connect } from 'react-redux';
+import { getUser } from '../../../redux/userRedux.js';
+
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -27,7 +30,7 @@ const myads = [
     image: 'https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png',
   },
 ];
-const Component = ({ className }) => (
+const Component = ({ className, user }) => (
   <div className={clsx(className, styles.root)}>
 
     <h3>My ads</h3>
@@ -47,26 +50,29 @@ const Component = ({ className }) => (
         </Card>
       ))}
     </CardGroup>
-    <Button href="/post/add" variant="dark">Add new post</Button>
+    {user.authenticated ? (
+      <Button href="/post/add" variant="dark">Add new post</Button>
+    ) : ''}
   </div>
 );
 
 Component.propTypes = {
   className: PropTypes.string,
+  user: PropTypes.object,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  user: getUser(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as Homepage,
-  // Container as Homepage,
+  // Component as Homepage,
+  Container as Homepage,
   Component as HomepageComponent,
 };
