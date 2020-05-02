@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
-
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -45,23 +44,22 @@ const Component = ({ className }) => (
         </Form.Text>
       </Form.Group>
       <Form.Row>
-        <Col>
+        <Col sm={12} md={4}>
           <Form.Group controlId="postLocation">
             <Form.Label>Location</Form.Label>
             <Form.Control required type="text" placeholder="Enter your location" />
           </Form.Group>
         </Col>
-        <Col>
+        <Col sm={12} md={4}>
           <Form.Group controlId="postPrice">
             <Form.Label>Price</Form.Label>
             <Form.Control required type="text" placeholder="Enter price" />
           </Form.Group>
         </Col>
-        <Col>
+        <Col sm={12} md={4}>
           <Form.Group controlId="postPhone">
             <Form.Label>Phone</Form.Label>
-            <Form.Control required type="text" placeholder="Enter your telephone number" />
-
+            <Form.Control required type="text" placeholder="Enter telephone number" />
           </Form.Group>
         </Col>
       </Form.Row>

@@ -6,6 +6,15 @@ const mockProps = {
   user: {
     authenticated: false,
   },
+  posts: [
+    {
+      id: 1,
+      title: 'title',
+      location: 'lodz',
+      image: 'https://loremflickr.com/400/200/landscape,Turkey/all?lock=1',
+      publishedDate: 'today',
+    },
+  ],
 };
 
 describe('Component Homepage', () => {
