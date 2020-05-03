@@ -17,6 +17,7 @@ const mockProps = {
     email: 'john.doe@example.com',
     phone: '5683573746',
     price: '50.00',
+    status: 'Published',
   },
   user: {
     authenticated: true,

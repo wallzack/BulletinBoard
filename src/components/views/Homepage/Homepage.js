@@ -19,7 +19,9 @@ import styles from './Homepage.module.scss';
 
 const Component = ({ className, user, posts }) => (
   <div className={clsx(className, styles.root)}>
-    <h3>My ads</h3>
+    {user.authenticated ? (
+      <Button href="/post/add" className="m-3" variant="dark">Add new post</Button>
+    ) : ''}
     <Row>
       {posts.map(ad => (
         <Col xs={12} md={6} lg={4} key={ad.id}>
@@ -38,9 +40,6 @@ const Component = ({ className, user, posts }) => (
         </Col>
       ))}
     </Row>
-    {user.authenticated ? (
-      <Button href="/post/add" variant="dark">Add new post</Button>
-    ) : ''}
   </div>
 );
 

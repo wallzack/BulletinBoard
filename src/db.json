@@ -12,7 +12,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "50.00",
-    "image": "https://tidal.com/_nuxt/img/620975c.png"
+    "image": "https://tidal.com/_nuxt/img/620975c.png",
+    "status": "Published"
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "90.00",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     "email": "john.doe@example.com",
     "phone": "",
     "price": "65.90",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 5,
@@ -72,7 +76,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 6,
@@ -87,7 +92,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Closed"
   },
   {
     "id": 7,
@@ -102,7 +108,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "654.90",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 8,
@@ -117,7 +124,8 @@
     "email": "john.doe@example.com",
     "phone": "5683573746",
     "price": "",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
   },
   {
     "id": 9,
@@ -132,6 +140,7 @@
     "email": "john.doe@example.com",
     "phone": "568357746",
     "price": "897.90",
-    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png"
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Closed"
   }
 ]

@@ -66,6 +66,7 @@ class Component extends React.Component {
         id: randomID(10),
         published: displayTime,
         updated: displayTime,
+        status: 'Published',
         user: {
           id: user.id,
         },
@@ -86,7 +87,7 @@ class Component extends React.Component {
           <h2>PostAdd</h2>
           <Form onSubmit={submitPost}>
             <Form.Row>
-              <Col lg={8}>
+              <Col lg={7}>
                 <Form.Group controlId="postTitle">
                   <Form.Label>Title</Form.Label>
                   <Form.Control name="title" onChange={updateInputValue} value={postData.title} minLength="10" required type="text" placeholder="Enter title" />
@@ -95,13 +96,19 @@ class Component extends React.Component {
                   </Form.Text>
                 </Form.Group>
               </Col>
-              <Col lg={4}>
+              <Col md={6} lg={3}>
                 <Form.Group controlId="epostEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control name="email" onChange={updateInputValue} value={postData.email} required type="email" placeholder="name@example.com" />
                   <Form.Text className="text-muted">
                     Enter your e-mail address to let people contact you easily
                   </Form.Text>
+                </Form.Group>
+              </Col>
+              <Col md={6} lg={2}>
+                <Form.Group controlId="postStatus">
+                  <Form.Label>Status</Form.Label>
+                  <Form.Control name="status" defaultValue="Draft" readOnly type="text" />
                 </Form.Group>
               </Col>
             </Form.Row>

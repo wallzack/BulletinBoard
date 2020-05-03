@@ -82,22 +82,28 @@ class Component extends React.Component {
           <h2>Edit post</h2>
           <Form onSubmit={submitPost}>
             <Form.Row>
-              <Col lg={8}>
+              <Col lg={7}>
                 <Form.Group controlId="postTitle">
                   <Form.Label>Title</Form.Label>
-                  <Form.Control name="title" onChange={updateInputValue} value={postData.title} minLength="10" required type="text" />
+                  <Form.Control name="title" onChange={updateInputValue} value={postData.title} minLength="10" required type="text" placeholder="Enter title" />
                   <Form.Text className="text-muted">
                     Use catching keywords
                   </Form.Text>
                 </Form.Group>
               </Col>
-              <Col lg={4}>
-                <Form.Group controlId="postEmail">
+              <Col md={6} lg={3}>
+                <Form.Group controlId="epostEmail">
                   <Form.Label>E-mail</Form.Label>
-                  <Form.Control name="email" onChange={updateInputValue} value={postData.email} required type="email" />
+                  <Form.Control name="email" onChange={updateInputValue} value={postData.email} required type="email" placeholder="name@example.com" />
                   <Form.Text className="text-muted">
                     Enter your e-mail address to let people contact you easily
                   </Form.Text>
+                </Form.Group>
+              </Col>
+              <Col md={6} lg={2}>
+                <Form.Group controlId="postStatus">
+                  <Form.Label>Status</Form.Label>
+                  <Form.Control name="status" defaultValue={post.status} readOnly type="text" />
                 </Form.Group>
               </Col>
             </Form.Row>

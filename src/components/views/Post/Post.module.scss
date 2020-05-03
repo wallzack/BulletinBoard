@@ -5,6 +5,11 @@
   margin: 0 auto;
 }
 
+.postImage {
+  max-height: 400px;
+  object-fit: cover;
+}
+
 .postDetailsList {
   list-style: none;
   padding: 5px 0;

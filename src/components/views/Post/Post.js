@@ -14,12 +14,12 @@ import styles from './Post.module.scss';
 
 const Component = ({ className, post, user }) => (
   <div className={clsx(className, styles.root)}>
-    <h2>Post</h2>
-    {user.id === post.user.id ? (<Button href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
+    {user.id === post.user.id ? (<Button className="m-3" href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
     <Card>
-      <Card.Img variant="top" src={post.image} />
       <Card.Header>{post.title}</Card.Header>
+      <Card.Img className={styles.postImage} variant="top" src={post.image} />
       <Card.Subtitle className="mt-2 text-muted">{post.price}</Card.Subtitle>
+      <Card.Subtitle className="mt-2">Status: {post.status}</Card.Subtitle>
       <Card.Body>
         <Card.Text>
           {post.content}
