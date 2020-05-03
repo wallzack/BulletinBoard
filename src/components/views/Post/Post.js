@@ -15,7 +15,7 @@ import styles from './Post.module.scss';
 const Component = ({ className, post, user }) => (
   <div className={clsx(className, styles.root)}>
     <h2>Post</h2>
-    {user.authenticated ? (<Button href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
+    {user.id === post.user.id ? (<Button href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
     <Card>
       <Card.Img variant="top" src={post.image} />
       <Card.Header>{post.title}</Card.Header>

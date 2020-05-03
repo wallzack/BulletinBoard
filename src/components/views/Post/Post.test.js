@@ -7,6 +7,9 @@ const mockProps = {
     id: 1,
     content: 'TIDAL Premium subsription for 1 year. Great sound quality, hours of good music, check it out',
     title: 'title',
+    user: {
+      id: 'jgg49j64hndfH75',
+    },
     location: 'lodz',
     image: 'https://loremflickr.com/400/200/landscape,Turkey/all?lock=1',
     published: 'today',
@@ -17,6 +20,7 @@ const mockProps = {
   },
   user: {
     authenticated: true,
+    id: 'jgg49j64hndfH75',
   },
 };
 
