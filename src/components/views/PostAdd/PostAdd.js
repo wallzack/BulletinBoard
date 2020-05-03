@@ -26,7 +26,7 @@ class Component extends React.Component {
       location: '',
       phone: '',
       price: '',
-      image: '',
+      image: null,
     },
     isError: false,
   }
@@ -43,7 +43,14 @@ class Component extends React.Component {
     const { value, name } = target;
 
     this.setState({ postData: { ...postData, [name]: value } });
-  };
+  }
+
+  setImage = ({ target }) => {
+    const { postData } = this.state;
+    const files = target.files;
+
+    if (files) this.setState({ postData: { ...postData, image: files[0] } });
+  }
 
   submitPost = async (e) => {
     const { postData } = this.state;
@@ -69,7 +76,7 @@ class Component extends React.Component {
   };
 
   render() {
-    const { updateInputValue, submitPost } = this;
+    const { updateInputValue, submitPost, setImage } = this;
     const { postData } = this.state;
     const { className, user } = this.props;
 
@@ -125,6 +132,7 @@ class Component extends React.Component {
                 </Form.Group>
               </Col>
             </Form.Row>
+            <input name="image" onChange={setImage} type="file" />
             <Button variant="dark" type="submit">
               Add Post
             </Button>

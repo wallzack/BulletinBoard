@@ -46,6 +46,13 @@ class Component extends React.Component {
     this.setState({ postData: { ...postData, [name]: value } });
   };
 
+  setImage = ({ target }) => {
+    const { postData } = this.state;
+    const files = target.files;
+
+    if (files) this.setState({ postData: { ...postData, image: files[0] } });
+  };
+
   submitPost = async (e) => {
     const { postData } = this.state;
     // const { updatePost } = this.props;
@@ -66,7 +73,7 @@ class Component extends React.Component {
   };
 
   render() {
-    const { updateInputValue, submitPost } = this;
+    const { updateInputValue, submitPost, setImage } = this;
     const { post, className, user } = this.props;
     const { postData } = this.state;
     return (
@@ -121,6 +128,7 @@ class Component extends React.Component {
                 </Form.Group>
               </Col>
             </Form.Row>
+            <input name="image" onChange={setImage} type="file" />
             <Button variant="dark" type="submit">
               Update Post
             </Button>

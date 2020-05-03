@@ -17,7 +17,7 @@ import styles from './Header.module.scss';
 const Component = ({ className, user }) => (
   <div className={clsx(className, styles.root)}>
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Bulletin Board</Navbar.Brand>
+      <Navbar.Brand href="/">Bulletin Board</Navbar.Brand>
 
       {user.authenticated ? (
         <Nav className="mr-auto">
