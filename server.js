@@ -16,6 +16,8 @@ const server = app.listen(process.env.PORT || 8000, () => {
   console.log('Server is running on port: 8000');
 });
 
+app.use('/api', require('./routes/posts.routes'));
+
 mongoose.connect(`mongodb+srv://wallzack:YYvSXMNbCJv7PcIh@cluster0-ksbbn.mongodb.net/bulletinBoard?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 

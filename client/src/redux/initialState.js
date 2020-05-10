@@ -2,7 +2,7 @@ import posts from '../db.json';
 
 export const initialState = {
   posts: {
-    data: posts,
+    data: [],
     loading: {
       active: false,
       error: false,
