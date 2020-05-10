@@ -61,10 +61,9 @@ class Component extends React.Component {
 
     if (postData.title && postData.content && postData.email) {
       const time = new Date();
-      const displayTime = `${time.getDate()}.${time.getMonth()}.${time.getFullYear()}, ${time.getHours()}:${time.getMinutes()}`;
       const payload = {
         ...postData,
-        updated: displayTime,
+        updated: time,
       };
       console.log(payload);
       // await updatePost(postData);

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import randomID from '@wallzack/randomid-generator';
+// import randomID from '@wallzack/randomid-generator"';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import { NotFound } from '../../views/NotFound/NotFound';
 
 import { connect } from 'react-redux';
-import { /* addPostRequest,  */addPost } from '../../../redux/postsRedux.js';
+import { addPostRequest, addPost } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
 
 import styles from './PostAdd.module.scss';
@@ -59,19 +59,16 @@ class Component extends React.Component {
     e.preventDefault();
 
     if (postData.title && postData.content && postData.email) {
+
       const time = new Date();
-      const displayTime = `${time.getDate()}.${time.getMonth()}.${time.getFullYear()}, ${time.getHours()}:${time.getMinutes()}`;
       const payload = {
         ...postData,
-        id: randomID(10),
-        published: displayTime,
-        updated: displayTime,
+        published: time,
+        updated: time,
+        user: user.id,
         status: 'Published',
-        user: {
-          id: user.id,
-        },
       };
-      await addPost(payload);
+      addPost(payload);
     } else this.setState({ isError: true });
 
   };
@@ -123,19 +120,19 @@ class Component extends React.Component {
               <Col sm={12} md={4}>
                 <Form.Group controlId="postLocation">
                   <Form.Label>Location</Form.Label>
-                  <Form.Control name="location" onChange={updateInputValue} value={postData.location} required type="text" placeholder="Enter your location" />
+                  <Form.Control name="location" onChange={updateInputValue} value={postData.location} type="text" placeholder="Enter your location" />
                 </Form.Group>
               </Col>
               <Col sm={12} md={4}>
                 <Form.Group controlId="postPrice">
                   <Form.Label>Price</Form.Label>
-                  <Form.Control name="price" onChange={updateInputValue} value={postData.price} required type="text" placeholder="Enter price" />
+                  <Form.Control name="price" onChange={updateInputValue} value={postData.price} type="text" placeholder="Enter price" />
                 </Form.Group>
               </Col>
               <Col sm={12} md={4}>
                 <Form.Group controlId="postPhone">
                   <Form.Label>Phone</Form.Label>
-                  <Form.Control name="phone" onChange={updateInputValue} value={postData.phone} required type="text" placeholder="Enter telephone number" />
+                  <Form.Control name="phone" onChange={updateInputValue} value={postData.phone} type="text" placeholder="Enter telephone number" />
                 </Form.Group>
               </Col>
             </Form.Row>
@@ -158,7 +155,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addPost: post => dispatch(addPost(post)),
+  addPost: post => dispatch(addPostRequest(post)),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

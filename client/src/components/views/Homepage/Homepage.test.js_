@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { HomepageComponent } from './Homepage';
 
+const now = new Date();
 const mockProps = {
   user: {
     authenticated: false,
@@ -12,7 +13,7 @@ const mockProps = {
       title: 'title',
       location: 'lodz',
       image: 'https://loremflickr.com/400/200/landscape,Turkey/all?lock=1',
-      published: 'today',
+      published: now,
     },
   ],
 };

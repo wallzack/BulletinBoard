@@ -6,6 +6,8 @@ import clsx from 'clsx';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+import { displayTime } from '../../../utils/displayTime';
+
 import { connect } from 'react-redux';
 import { getPostById } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
@@ -40,8 +42,8 @@ const Component = ({ className, post, user }) => (
         </ul>
       </Card.Body>
       <Card.Footer>
-        <small className="text-muted">Last update {post.updated}</small>
-        <small className="text-muted">Published {post.published}</small>
+        <small className="text-muted">Last update {displayTime(post.updated)}</small>
+        <small className="text-muted">Published {displayTime(post.published)}</small>
       </Card.Footer>
     </Card>
   </div>

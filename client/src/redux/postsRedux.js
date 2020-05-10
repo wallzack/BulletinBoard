@@ -53,6 +53,30 @@ export const loadPostsRequest = () => {
   };
 };
 
+export const addPostRequest = (data) => {
+  return async dispatch => {
+    dispatch(startRequest());
+    try {
+      let res = await axios.post(
+        `${API_URL}/posts`,
+        data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      dispatch(addPost(res.data));
+      dispatch(endRequest());
+
+    } catch (e) {
+      dispatch(errorRequest(e.message));
+    }
+
+  };
+};
+
 /* reducer */
 export const reducer = (statePart = [], action = {}) => {
   switch (action.type) {
