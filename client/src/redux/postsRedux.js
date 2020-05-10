@@ -5,9 +5,14 @@ import { API_URL } from '../config';
 export const getAll = ({ posts }) => posts.data;
 
 export const getPostById = ({ posts }, postId) => {
-  const filteredPost = posts.data.filter(post => post.id == postId);
+  const filteredPost = posts.data.filter(post => post.id === postId);
   return filteredPost.length ? filteredPost[0] : { error: true };
 };
+
+/* export const getPostsByUser = ({ posts, user }) => {
+  const usersPost = posts.data.filter(post => post.id === user.id);
+  return usersPost;
+}; */
 
 /* action name creator */
 const reducerName = 'posts';
@@ -38,18 +43,14 @@ export const loadPosts = payload => ({ payload, type: LOAD_POSTS });
 /* thunk creators */
 export const loadPostsRequest = () => {
   return async dispatch => {
-
     dispatch(startRequest());
     try {
       let res = await axios.get(`${API_URL}/posts`);
-
       dispatch(loadPosts(res.data));
       dispatch(endRequest());
-
     } catch (e) {
       dispatch(errorRequest(e.message));
     }
-
   };
 };
 
@@ -66,14 +67,11 @@ export const addPostRequest = (data) => {
           },
         },
       );
-
       dispatch(addPost(res.data));
       dispatch(endRequest());
-
     } catch (e) {
       dispatch(errorRequest(e.message));
     }
-
   };
 };
 
