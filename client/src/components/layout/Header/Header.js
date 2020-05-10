@@ -25,23 +25,23 @@ class Component extends React.Component {
     expanded: false,
   }
 
-  // checkWidth = () => {
-  //   const mobile = '(max-width: 576px)';
+  checkWidth = () => {
+    const mobile = '(max-width: 576px)';
 
-  //   if (window.matchMedia(`${mobile}`).matches) {
-  //     return 'mobile';
-  //   } else {
-  //     return 'desktop';
-  //   }
-  // }
+    if (window.matchMedia(`${mobile}`).matches) {
+      return 'mobile';
+    } else {
+      return 'desktop';
+    }
+  }
 
-  // componentDidMount() {
-  //   this.setState({ viewportMode: this.checkWidth() });
-  // }
+  componentDidMount() {
+    this.setState({ viewportMode: this.checkWidth() });
+  }
 
-  // componentDidUpdate() {
-  //   window.addEventListener('resize', () => this.setState({ viewportMode: this.checkWidth() }));
-  // }
+  componentDidUpdate() {
+    window.addEventListener('resize', () => this.setState({ viewportMode: this.checkWidth() }));
+  }
   render() {
     const { viewportMode, expanded } = this.state;
     const { user, className } = this.props;
