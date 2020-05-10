@@ -22,7 +22,7 @@ const Component = (post, { className }) => (
         <Card>
           <CardMedia
             component="img"
-            image={post.image ? `${IMAGES_URL}/${post.image}` : `${IMAGES_URL}/photo_null.jpg`}
+            image={post.image ? `${IMAGES_URL}/${post.image}` : `${IMAGES_URL}/photo_null.jpeg`}
             title={post.title}
           />
           <CardContent>

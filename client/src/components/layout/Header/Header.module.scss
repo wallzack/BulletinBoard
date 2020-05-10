@@ -1,16 +1,12 @@
 @import "../../../styles/global.scss";
 @import "../../../styles/settings.scss";
 
-.root {
+.root,
+.rootMobile {
   background-color: $color-secondary;
-  display: flex;
   text-transform: uppercase;
   font-size: 1.5rem;
-  margin-bottom: 40px;
   padding: 10px 20px;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 2px 4px 2px $color-secondary;
 
   a {
     color: $color-light;
@@ -26,13 +22,55 @@
       opacity: 0.5;
     }
   }
+}
 
+.root {
+  box-shadow: 0px 2px 4px 2px $color-secondary;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   button,
   button:hover {
     background-color: $color-decorator;
+    color: $color-light;
     transition: $transition;
     &:hover {
       opacity: 0.7;
     }
   }
+}
+
+.rootMobile {
+  position: fixed;
+  border-bottom: 1px solid $color-light;
+  height: 60px;
+  width: 100vw;
+  overflow: hidden;
+  transition: $transition-open-menu;
+  z-index: 2;
+
+  button,
+  button:hover {
+    color: $color-light;
+  }
+}
+
+.panel {
+  a {
+    padding: 10px 0px;
+    float: right;
+  }
+}
+
+.active {
+  height: 230px;
+
+  .list {
+    display: block;
+  }
+}
+
+.list {
+  display: none;
 }

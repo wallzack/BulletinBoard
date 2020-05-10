@@ -1,3 +1,4 @@
+
 const validateData = (title, content, email, file) => {
   console.log('validatePost, file', file);
 

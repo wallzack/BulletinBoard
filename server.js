@@ -4,7 +4,7 @@ const path = require('path');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
 const formidable = require('express-formidable');
-const randomID = require('@wallzack/randomid-generator');
+const randomID = require('@maripab/id-generator');
 const requestIp = require('request-ip');
 
 const app = express();

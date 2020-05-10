@@ -1,4 +1,16 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
-// .root {
-// }
+.root {
+  position: relative;
+}
+
+.customContainer {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 576px) {
+  .customContainer {
+    padding-top: 70px;
+  }
+}
