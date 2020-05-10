@@ -1,4 +1,20 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
-// .root {
-// }
+.root {
+  background-color: $color-secondary;
+  border-radius: 3px;
+  padding: 40px 30px;
+  color: $color-light;
+  font-size: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+
+  button {
+    background-color: $color-supplemental;
+    color: $color-light;
+    margin-top: 30px;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}

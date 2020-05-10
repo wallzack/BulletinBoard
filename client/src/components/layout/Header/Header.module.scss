@@ -1,4 +1,31 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/global.scss";
+@import "../../../styles/settings.scss";
 
-// .root {
-// }
+.root {
+  background-color: $color-secondary;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px 2px $color-secondary;
+
+  a {
+    color: $color-light;
+    font-weight: 600;
+    transition: $transition;
+    margin: 0 20px;
+
+    &:hover {
+      text-decoration: none;
+      color: $color-light;
+      opacity: 0.5;
+    }
+  }
+
+  button {
+    background-color: $color-supplemental;
+  }
+}

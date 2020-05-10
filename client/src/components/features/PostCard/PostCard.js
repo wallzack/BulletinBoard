@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Col from 'react-bootstrap/Col';
 import { IMAGES_URL } from '../../../config';
-import Card from 'react-bootstrap/Card';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 import { displayTime } from '../../../utils/displayTime';
 import { NavLink } from 'react-router-dom';
 
@@ -14,27 +17,24 @@ import styles from './PostCard.module.scss';
 
 const Component = (post, { className }) => (
   <Col xs={12} md={6} lg={4} key={post._id}>
-    <div className={clsx(className, styles.root)}>
-      <Card {...post} className={styles.ad}>
-        <Card.Img
-          className={styles.cardImage}
-          variant="top"
-          src={post.image ? `${IMAGES_URL}/${post.image}` : `${IMAGES_URL}/photo_null.jpg`}
-        />
-        <Card.Body>
-          <Card.Title>
-            <NavLink exact to={`/post/${post._id}`}>{post.title}</NavLink>
-          </Card.Title>
-          <Card.Text>
-            &nbsp;{post.location}
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">
-            Published {displayTime(post.published)}
-          </small>
-        </Card.Footer>
-      </Card>
+    <div {...post} className={clsx(className, styles.root)}>
+      <NavLink exact to={`/post/${post._id}`}>
+        <Card>
+          <CardMedia
+            component="img"
+            image={post.image ? `${IMAGES_URL}/${post.image}` : `${IMAGES_URL}/photo_null.jpg`}
+            title={post.title}
+          />
+          <CardContent>
+            <Typography component="h3">
+              {post.title}
+            </Typography>
+            <Typography component="p">
+              Published {displayTime(post.published)}
+            </Typography>
+          </CardContent>
+        </Card>
+      </NavLink>
     </div>
   </Col>
 );

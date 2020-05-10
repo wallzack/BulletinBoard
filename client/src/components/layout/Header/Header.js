@@ -5,27 +5,34 @@ import { getUser } from '../../../redux/userRedux.js';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import { NavLink, Link } from 'react-router-dom';
+import DnsIcon from '@material-ui/icons/Dns';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
 
 const Component = ({ className, user }) => (
-  <div >
-    <nav className={clsx(className, styles.root)} >
-      <Link /* className={styles.logo}  */ to="/">
-        <h2>Bulletin Board</h2>
-      </Link>
-      <NavLink exact to="/" /* activeClassName={active} */>All posts</NavLink>
-      {user.authenticated ? (
-        <div>
-          <NavLink exact to="/my-posts" /* activeClassName={active} */>My ads</NavLink>
-          <NavLink exact to="/">Logout</NavLink>
-        </div>
-      ) :
-        (
-          <Link to="https://google.com"/* className={styles.logo} to={home.path} */>
-            Login with Google
-          </Link>
-        )}
-    </nav>
-  </div >
+  <nav className={clsx(className, styles.root)} >
+    <Link /* className={styles.logo}  */ to="/">
+      <h2><DnsIcon /></h2>
+    </Link>
+    {user.authenticated ? (
+      <div>
+        <Fab aria-label="add" size="small">
+          <NavLink exact to="/post/add">
+            <AddIcon />
+          </NavLink>
+        </Fab>
+        <NavLink exact to="/" /* activeClassName={active} */>All posts</NavLink>
+        <NavLink exact to="/my-posts" /* activeClassName={active} */>My ads</NavLink>
+        <NavLink exact to="/">Logout</NavLink>
+      </div>
+    ) :
+      (
+        <Link to="https://google.com"/* className={styles.logo} to={home.path} */>
+          Login with Google
+        </Link>
+      )}
+  </nav>
 );
 
 Component.propTypes = {

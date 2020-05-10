@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 import Col from 'react-bootstrap/Col';
 import clsx from 'clsx';
 import { NotFound } from '../../views/NotFound/NotFound';
 import { connect } from 'react-redux';
 import { addPostRequest } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
+import AddIcon from '@material-ui/icons/Add';
 
 import styles from './PostAdd.module.scss';
 
@@ -80,10 +81,10 @@ class Component extends React.Component {
     return (
       user.authenticated ? (
         <div className={clsx(className, styles.root)}>
-          <h2>PostAdd</h2>
+          <h2>Add New Post</h2>
           <Form onSubmit={submitPost}>
             <Form.Row>
-              <Col lg={7}>
+              <Col md={8}>
                 <Form.Group controlId="postTitle">
                   <Form.Label>Title</Form.Label>
                   <Form.Control name="title" onChange={updateInputValue} value={postData.title} minLength="10" required type="text" placeholder="Enter title" />
@@ -92,7 +93,15 @@ class Component extends React.Component {
                   </Form.Text>
                 </Form.Group>
               </Col>
-              <Col md={6} lg={3}>
+              <Col md={4}>
+                <Form.Group controlId="postStatus">
+                  <Form.Label>Status</Form.Label>
+                  <Form.Control name="status" defaultValue="Draft" readOnly type="text" />
+                </Form.Group>
+              </Col>
+            </Form.Row>
+            <Form.Row>
+              <Col md={6}>
                 <Form.Group controlId="epostEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control name="email" onChange={updateInputValue} value={postData.email} required type="email" placeholder="name@example.com" />
@@ -101,15 +110,18 @@ class Component extends React.Component {
                   </Form.Text>
                 </Form.Group>
               </Col>
-              <Col md={6} lg={2}>
-                <Form.Group controlId="postStatus">
-                  <Form.Label>Status</Form.Label>
-                  <Form.Control name="status" defaultValue="Draft" readOnly type="text" />
+              <Col md={6}>
+                <Form.Group controlId="postPhone">
+                  <Form.Label>Phone</Form.Label>
+                  <Form.Control name="phone" onChange={updateInputValue} value={postData.phone} type="text" placeholder="Enter telephone number" />
+                  <Form.Text className="text-muted">
+                    Entering phone is optional, but makes reaching you easy
+                  </Form.Text>
                 </Form.Group>
               </Col>
             </Form.Row>
             <Form.Group controlId="postContent">
-              <Form.Label>Describe the object or matter of your post</Form.Label>
+              <Form.Label>Post description</Form.Label>
               <Form.Control name="content" onChange={updateInputValue} value={postData.content} minLength="20" required as="textarea" rows="3" />
               <Form.Text className="text-muted">
                 Describe the object or matter of your post
@@ -128,15 +140,12 @@ class Component extends React.Component {
                   <Form.Control name="price" onChange={updateInputValue} value={postData.price} type="text" placeholder="Enter price" />
                 </Form.Group>
               </Col>
-              <Col sm={12} md={4}>
-                <Form.Group controlId="postPhone">
-                  <Form.Label>Phone</Form.Label>
-                  <Form.Control name="phone" onChange={updateInputValue} value={postData.phone} type="text" placeholder="Enter telephone number" />
-                </Form.Group>
-              </Col>
             </Form.Row>
             <input name="image" onChange={setImage} type="file" />
-            <Button variant="dark" type="submit">
+            <Button
+              type="submit"
+              startIcon={<AddIcon />}
+            >
               Add Post
             </Button>
           </Form>
