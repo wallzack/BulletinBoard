@@ -3,13 +3,28 @@ const cors = require('cors');
 const path = require('path');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
+const formidable = require('express-formidable');
+const randomID = require('@wallzack/randomid-generator');
+const requestIp = require('request-ip');
 
 const app = express();
 app.use(helmet());
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
+app.use(requestIp.mw());
+
+app.use(formidable({ uploadDir: './public/uploads/' }, [{
+  event: 'fileBegin', // on every file upload...
+  action: (req, res, next, name, file) => {
+    const fileName = randomID(10) + '.' + file.name.split('.')[1];
+    file.path = __dirname + '/public/uploads/photo_' + fileName;
+  }
+},
+]));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path.join(__dirname + '/client/src')));
 
 const server = app.listen(process.env.PORT || 8000, () => {

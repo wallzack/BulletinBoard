@@ -16,6 +16,7 @@ const mockProps = {
       published: now,
     },
   ],
+  loadPosts: () => console.log('func'),
 };
 
 describe('Component Homepage', () => {

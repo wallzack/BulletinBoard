@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import randomID from '@wallzack/randomid-generator"';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-
 import clsx from 'clsx';
-
 import { NotFound } from '../../views/NotFound/NotFound';
-
 import { connect } from 'react-redux';
-import { addPostRequest, addPost } from '../../../redux/postsRedux.js';
+import { addPostRequest } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
 
 import styles from './PostAdd.module.scss';
@@ -60,15 +55,19 @@ class Component extends React.Component {
 
     if (postData.title && postData.content && postData.email) {
 
+      const formData = new FormData();
       const time = new Date();
-      const payload = {
-        ...postData,
-        published: time,
-        updated: time,
-        user: user.id,
-        status: 'Published',
-      };
-      addPost(payload);
+      for (let key of ['email', 'content', 'title', 'location', 'price', 'phone']) {
+        formData.append(key, postData[key]);
+      }
+
+      formData.append('image', postData.image);
+      formData.append('published', time);
+      formData.append('updated', time);
+      formData.append('status', 'Published');
+      formData.append('user', user.id);
+
+      addPost(formData);
     } else this.setState({ isError: true });
 
   };

@@ -10,7 +10,10 @@ import styles from './NotFound.module.scss';
 
 const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
-    <img alt="ooops" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqN1XZSBIbUjDqodj2ez8ouyD5YfnUsJgjk8d4FMLKRdb9ld5W"></img>
+    <img
+      alt="ooops"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqN1XZSBIbUjDqodj2ez8ouyD5YfnUsJgjk8d4FMLKRdb9ld5W"
+    />
     <p>Page has not been found</p>
     <a href="/">Go back to the homepage</a>
   </div>

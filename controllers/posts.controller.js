@@ -33,8 +33,10 @@ exports.loadByUser = async (req, res) => {
 
 exports.addPost = async (req, res) => {
   try {
-    const { title, content, email } = req.body;
-
+    const { title, content, email } = req.fields;
+    const file = req.files.image.path;
+    const fileName = file.split('/').slice(-1)[0];
+    const validFileExtension = /(.*?)\.(jpg|jpeg|gif|png)$/;
     const validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const invalidSigns = /[<>%\$]/;
 
@@ -44,9 +46,10 @@ exports.addPost = async (req, res) => {
     else if (title.length < 10 && title.length > 50) isValid = false;
     else if (content.length < 20) isValid = false;
     else if (!validEmail.test(email)) isValid = false;
+    else if (!validFileExtension.test(fileName)) isValid = false;
 
     if (isValid) {
-      const newPost = new Post({ ...req.body });
+      const newPost = new Post({ ...req.fields, image: fileName });
       await newPost.save();
       res.json(newPost);
     } else {
