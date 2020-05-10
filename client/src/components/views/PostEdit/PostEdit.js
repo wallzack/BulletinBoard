@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import clsx from 'clsx';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-
 import { NotFound } from '../../views/NotFound/NotFound';
-
 import { connect } from 'react-redux';
-import { getPostById } from '../../../redux/postsRedux.js';
+import { getPostById, updatePostRequest } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
 
 import styles from './PostEdit.module.scss';
@@ -19,7 +15,7 @@ class Component extends React.Component {
 
   state = {
     postData: {
-      id: this.props.post.id,
+      id: this.props.post._id,
       title: this.props.post.title,
       content: this.props.post.content,
       email: this.props.post.email,
@@ -36,7 +32,7 @@ class Component extends React.Component {
     className: PropTypes.string,
     post: PropTypes.object,
     user: PropTypes.object,
-
+    updatePost: PropTypes.func,
   }
 
   updateInputValue = ({ target }) => {
@@ -55,18 +51,20 @@ class Component extends React.Component {
 
   submitPost = async (e) => {
     const { postData } = this.state;
-    // const { updatePost } = this.props;
+    const { updatePost } = this.props;
 
     e.preventDefault();
 
     if (postData.title && postData.content && postData.email) {
+      const formData = new FormData();
       const time = new Date();
-      const payload = {
-        ...postData,
-        updated: time,
-      };
-      console.log(payload);
-      // await updatePost(postData);
+      for (let key of ['email', 'content', 'title', 'location', 'price', 'phone']) {
+        formData.append(key, postData[key]);
+      }
+      formData.append('image', postData.image);
+      formData.append('updated', time);
+
+      updatePost(postData.id, formData);
     } else this.setState({ isError: true });
 
   };
@@ -76,7 +74,7 @@ class Component extends React.Component {
     const { post, className, user } = this.props;
     const { postData } = this.state;
     return (
-      user.id === post.user.id ? (
+      user.id === post.user ? (
         <div className={clsx(className, styles.root)}>
           <h2>Edit post</h2>
           <Form onSubmit={submitPost}>
@@ -91,7 +89,7 @@ class Component extends React.Component {
                 </Form.Group>
               </Col>
               <Col md={6} lg={3}>
-                <Form.Group controlId="epostEmail">
+                <Form.Group controlId="postEmail">
                   <Form.Label>E-mail</Form.Label>
                   <Form.Control name="email" onChange={updateInputValue} value={postData.email} required type="email" placeholder="name@example.com" />
                   <Form.Text className="text-muted">
@@ -153,11 +151,11 @@ const mapStateToProps = (state, props) => ({
   user: getUser(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  updatePost: (id, data) => dispatch(updatePostRequest(id, data)),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   // Component as PostEdit,

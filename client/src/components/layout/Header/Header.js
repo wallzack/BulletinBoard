@@ -2,35 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../../../redux/userRedux.js';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
+import { NavLink, Link } from 'react-router-dom';
 
 const Component = ({ className, user }) => (
-  <div className={clsx(className, styles.root)}>
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
-        Bulletin Board
-      </Navbar.Brand>
+  <div >
+    <nav className={clsx(className, styles.root)} >
+      <Link /* className={styles.logo}  */ to="/">
+        <h2>Bulletin Board</h2>
+      </Link>
+      <NavLink exact to="/" /* activeClassName={active} */>All posts</NavLink>
       {user.authenticated ? (
-        <Nav className="mr-auto">
-          <Nav.Link href={`/my-posts`}>
-            My ads
-          </Nav.Link>
-          <Nav.Link href="/">
-            Logout
-          </Nav.Link>
-        </Nav>
+        <div>
+          <NavLink exact to="/my-posts" /* activeClassName={active} */>My ads</NavLink>
+          <NavLink exact to="/">Logout</NavLink>
+        </div>
       ) :
         (
-          <Nav className="mr-auto">
-            <Nav.Link href="https://google.com">
-              Login with Google
-            </Nav.Link>
-          </Nav>
+          <Link to="https://google.com"/* className={styles.logo} to={home.path} */>
+            Login with Google
+          </Link>
         )}
-    </Navbar>
+    </nav>
   </div >
 );
 

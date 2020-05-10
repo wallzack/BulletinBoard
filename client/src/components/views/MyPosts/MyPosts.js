@@ -6,47 +6,50 @@ import Row from 'react-bootstrap/Row';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUser } from '../../../redux/userRedux.js';
-import { getAll } from '../../../redux/postsRedux.js';
+import { getPostsByUser } from '../../../redux/postsRedux.js';
 import { PostCard } from '../../features/PostCard/PostCard';
 import clsx from 'clsx';
+import { NotFound } from '../../views/NotFound/NotFound';
+import styles from './MyPosts.module.scss';
 
-import styles from './Homepage.module.scss';
-
-const Component = ({ posts, className, user }) => {
+const Component = ({ myPosts, className, user }) => {
 
   return (
-    <div className={clsx(className, styles.root)}>
-      {user.authenticated ? (
+    user.authenticated ? (
+      <div className={clsx(className, styles.root)}>
         <Fab color="primary" aria-label="add">
           <NavLink exact to="/post/add">
             <AddIcon />
           </NavLink>
         </Fab>
-      ) : ''}
-      <Row>
-        {posts.map(post => (
-          <PostCard key={post._id} {...post} />
-        ))}
-      </Row>
-    </div>
+        <Row>
+          {myPosts.map(post => (
+            <PostCard key={post._id} {...post} />
+          ))}
+        </Row>
+      </div>
+    ) :
+      (
+        <NotFound />
+      )
   );
 };
 
 Component.propTypes = {
   className: PropTypes.string,
   user: PropTypes.object,
-  posts: PropTypes.array,
+  myPosts: PropTypes.array,
 };
 
 const mapStateToProps = state => ({
   user: getUser(state),
-  posts: getAll(state),
+  myPosts: getPostsByUser(state),
 });
 
 const Container = connect(mapStateToProps, null)(Component);
 
 export {
-  // Component as Homepage,
-  Container as Homepage,
-  Component as HomepageComponent,
+  // Component as MyPosts,
+  Container as MyPosts,
+  Component as MyPostsComponent,
 };

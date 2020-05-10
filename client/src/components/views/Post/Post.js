@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import clsx from 'clsx';
-
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
 import { displayTime } from '../../../utils/displayTime';
-
 import { connect } from 'react-redux';
 import { getPostById } from '../../../redux/postsRedux.js';
 import { getUser } from '../../../redux/userRedux.js';
-
+import { IMAGES_URL } from '../../../config';
 import styles from './Post.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const Component = ({ className, post, user }) => (
   <div className={clsx(className, styles.root)}>
-    {user.id === post.user.id ? (<Button className="m-3" href={`/post/${post.id}/edit`} variant="dark">Edit post</Button>) : ''}
+    {user.id === post.user ? (
+      <Button
+        className="m-3"
+        variant="dark">
+        <NavLink exact to={`/post/${post._id}/edit`} /* activeClassName={active} */>Edit post</NavLink>
+      </Button>
+    ) : ''}
     <Card>
       <Card.Header>{post.title}</Card.Header>
-      <Card.Img className={styles.postImage} variant="top" src={post.image} />
+      <Card.Img
+        className={styles.postImage}
+        variant="top"
+        src={post.image ? `${IMAGES_URL}/${post.image}` : `${IMAGES_URL}/photo_null.jpg`}
+      />
       <Card.Subtitle className="mt-2 text-muted">{post.price}</Card.Subtitle>
       <Card.Subtitle className="mt-2">Status: {post.status}</Card.Subtitle>
       <Card.Body>

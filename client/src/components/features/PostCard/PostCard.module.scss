@@ -1,0 +1,17 @@
+.ads {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ad {
+  flex: 0 0 33%;
+  max-width: 300px;
+  margin: 30px 0;
+}
+
+.cardImage {
+  height: 250px;
+  object-fit: cover;
+}
