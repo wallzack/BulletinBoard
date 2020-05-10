@@ -71,7 +71,7 @@ exports.editPost = async (req, res) => {
       post.price = price;
       post.phone = phone;
       post.updated = updated;
-      post.image = fileName;
+      fileName ? post.image = fileName : post.image;
       await post.save();
       res.json(post);
     }

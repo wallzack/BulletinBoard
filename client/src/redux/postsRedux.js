@@ -2,7 +2,8 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* selectors */
-export const getAll = ({ posts }) => posts.data;
+export const getAll = ({ posts }) => posts.data.sort(
+  (a, b) => Date.parse(a.published) - Date.parse(b.published)).reverse();
 
 export const getPostById = ({ posts }, postId) => {
   const filteredPost = posts.data.filter(post => post._id === postId);
@@ -10,7 +11,8 @@ export const getPostById = ({ posts }, postId) => {
 };
 
 export const getPostsByUser = ({ posts, user }) => {
-  const usersPost = posts.data.filter(post => post.user === user.id);
+  const usersPost = posts.data.filter(post => post.user === user.id).sort(
+    (a, b) => Date.parse(a.published) - Date.parse(b.published)).reverse();
   return usersPost;
 };
 
@@ -33,8 +35,7 @@ export const addPost = payload => ({ payload, type: ADD_POST });
 export const updatePost = payload => ({ payload, type: UPDATE_POST });
 
 /* thunk creators */
-export const loadPostsRequest = (/* { posts } */) => {
-  /* if (!posts || !posts.data && !posts.loading.active) { */
+export const loadPostsRequest = () => {
   return async dispatch => {
     dispatch(fetchStarted());
     try {
@@ -44,7 +45,6 @@ export const loadPostsRequest = (/* { posts } */) => {
       dispatch(fetchError(e.message || true));
     }
   };
-  /* } */
 };
 
 export const addPostRequest = (data) => {
@@ -129,16 +129,12 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case UPDATE_POST: {
+      console.log(action.payload);
       return {
         ...statePart,
-        data: [
-          statePart.data.map(
-            post => post._id === action.payload._id ? action.payload : post
-          )],
-        loading: {
-          active: false,
-          error: false,
-        },
+        data: statePart.data.map(post => {
+          return (post._id === action.payload._id ? { ...action.payload } : post);
+        }),
       };
     }
     default:

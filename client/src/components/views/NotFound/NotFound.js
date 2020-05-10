@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Fab from '@material-ui/core/Fab';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
@@ -10,12 +12,16 @@ import styles from './NotFound.module.scss';
 
 const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
+    <Fab>
+      <NavLink exact to={`/`}>
+        <ArrowBackIcon />
+      </NavLink>
+    </Fab>
     <img
       alt="ooops"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqN1XZSBIbUjDqodj2ez8ouyD5YfnUsJgjk8d4FMLKRdb9ld5W"
     />
     <p>Page has not been found</p>
-    <a href="/">Go back to the homepage</a>
   </div>
 );
 

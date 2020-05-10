@@ -17,7 +17,9 @@
     font-weight: 600;
     transition: $transition;
     margin: 0 20px;
-
+    :only-child {
+      font-size: 2.5rem;
+    }
     &:hover {
       text-decoration: none;
       color: $color-light;
@@ -25,7 +27,12 @@
     }
   }
 
-  button {
-    background-color: $color-supplemental;
+  button,
+  button:hover {
+    background-color: $color-decorator;
+    transition: $transition;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }

@@ -9,7 +9,8 @@ export const initialState = {
     },
   },
   user: {
-    rights: '',
+    id: '5e7726c41c9d440000a2674f',
+    rights: 'admin',
     authenticated: true,
   },
 };

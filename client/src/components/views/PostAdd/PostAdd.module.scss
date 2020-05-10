@@ -10,9 +10,14 @@
   margin: 0 auto;
 
   button {
-    background-color: $color-supplemental;
+    transition: $transition;
+    background-color: $color-decorator;
     color: $color-light;
     margin-top: 30px;
+    float: right;
+    &:hover {
+      background-color: lighten($color-decorator, 10%);
+    }
     span {
       font-size: 1.5rem;
     }

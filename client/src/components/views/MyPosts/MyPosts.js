@@ -17,11 +17,6 @@ const Component = ({ myPosts, className, user }) => {
   return (
     user.authenticated ? (
       <div className={clsx(className, styles.root)}>
-        <Fab color="primary" aria-label="add">
-          <NavLink exact to="/post/add">
-            <AddIcon />
-          </NavLink>
-        </Fab>
         <Row>
           {myPosts.map(post => (
             <PostCard key={post._id} {...post} />
