@@ -1,0 +1,26 @@
+export const myads = [
+  {
+    id: 1,
+    title: 'TIDAL Premium 1 year',
+    content: 'TIDAL Premium subsription for 1 year. Great sound quality, hours of good music, check it out',
+    location: 'Łódź',
+    publishedDate: 'today',
+    updatedDate: 'today',
+    email: 'john.doe@example.com',
+    phone: '5683573746',
+    price: '50.00',
+    image: 'https://tidal.com/_nuxt/img/620975c.png',
+  },
+  {
+    id: 2,
+    title: 'Check new Spotify',
+    content: 'Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.',
+    location: null,
+    publishedDate: 'yesterday',
+    updatedDate: 'yesterday',
+    email: 'john.doe@example.com',
+    phone: '5683573746',
+    price: '',
+    image: 'https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png',
+  },
+];

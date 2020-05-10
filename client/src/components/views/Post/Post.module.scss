@@ -1,0 +1,30 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.postImage {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.postDetailsList {
+  list-style: none;
+  padding: 5px 0;
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.postDetail {
+  width: 33%;
+  padding: 0 15px;
+  &:not(:last-child) {
+    border-right: 1px solid #d0d2d3;
+  }
+  small {
+    opacity: 0.4;
+  }
+}

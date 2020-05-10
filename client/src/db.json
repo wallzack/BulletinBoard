@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "user": {
+      "id": "478685674786"
+    },
+    "title": "TIDAL Premium 1 year",
+    "content": "TIDAL Premium subsription for 1 year. Great sound quality, hours of good music, check it out",
+    "location": "Łódź",
+    "published": "today",
+    "updated": "today",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "50.00",
+    "image": "https://tidal.com/_nuxt/img/620975c.png",
+    "status": "Published"
+  },
+  {
+    "id": 2,
+    "user": {
+      "id": "478685674786"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 3,
+    "user": {
+      "id": "478685674786"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "90.00",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 4,
+    "user": {
+      "id": "rhheyeh474yhb7r"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "",
+    "price": "65.90",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 5,
+    "user": {
+      "id": "rhheyeh474yhb7r"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 6,
+    "user": {
+      "id": "rhheyeh474yhb7r"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Closed"
+  },
+  {
+    "id": 7,
+    "user": {
+      "id": "478685674786"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "654.90",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 8,
+    "user": {
+      "id": "ehdhd85873463yh"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": null,
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "5683573746",
+    "price": "",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Published"
+  },
+  {
+    "id": 9,
+    "user": {
+      "id": "ehdhd85873463yh"
+    },
+    "title": "Check new Spotify",
+    "content": "Have you seen the newest Spotify upgrade? New functionality helps you to quickly get your favourite music.",
+    "location": "Wroclaw",
+    "published": "yesterday",
+    "updated": "yesterday",
+    "email": "john.doe@example.com",
+    "phone": "568357746",
+    "price": "897.90",
+    "image": "https://static.wirtualnemedia.pl/media/top/Spotify_nowyekran655.png",
+    "status": "Closed"
+  }
+]
