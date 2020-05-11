@@ -5,7 +5,6 @@ import { getUser } from '../../../redux/userRedux.js';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import { NavLink, Link } from 'react-router-dom';
-import DnsIcon from '@material-ui/icons/Dns';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
@@ -50,7 +49,7 @@ class Component extends React.Component {
       viewportMode === 'desktop' ? (
         <nav className={clsx(className, styles.root)} >
           <Link to="/">
-            <h2><DnsIcon /></h2>
+            <h2>Bulletin Board</h2>
           </Link>
           {user.authenticated ? (
             <div>
