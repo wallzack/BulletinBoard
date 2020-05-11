@@ -78,7 +78,7 @@ class Component extends React.Component {
   render() {
     const { updateInputValue, submitPost, setImage } = this;
     const { postData } = this.state;
-    const { className, user, history } = this.props;
+    const { className, user } = this.props;
 
     return (
       user.authenticated ? (

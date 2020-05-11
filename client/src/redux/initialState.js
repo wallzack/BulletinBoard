@@ -1,4 +1,4 @@
-import posts from '../db.json';
+// import posts from '../db.json';
 
 export const initialState = {
   posts: {
