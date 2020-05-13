@@ -72,7 +72,6 @@ class Component extends React.Component {
       addPost(formData);
       this.props.history.push('/my-posts');
     } else this.setState({ isError: true });
-
   };
 
   render() {
